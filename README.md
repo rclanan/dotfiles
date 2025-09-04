@@ -20,29 +20,57 @@ curl -fsSL https://raw.githubusercontent.com/rclanan/dotfiles/main/bootstrap.sh 
 
 ### 🛠️ Advanced Setup Options
 
-#### Option 1: Essential Development Setup
-Perfect for new machines - installs core development tools:
+#### 🚀 Quick Setup Options
+
+**Ultra-Fast (9 packages):**
 ```bash
-git clone git@github.com:rclanan/dotfiles.git ~/dotfiles
-cd ~/dotfiles
-./setup/install.sh --essential
+./setup/install.sh --minimal
+# base-devel, git, vim, zsh, curl, python, nodejs, docker, yay
 ```
 
-#### Option 2: Full System Replication
-Installs ALL packages from your current system (237 total packages):
+**Optimized Essentials (14 packages):**
+```bash
+./setup/install.sh --essential-opt
+# Core development tools without redundancies
+```
+
+**Core Packages (62 packages):**
+```bash
+./setup/install.sh --official-opt
+# Official packages without KDE/Plasma desktop environment
+```
+
+#### 📦 Full Setup Options
+
+**Complete System Replication:**
 ```bash
 ./setup/install.sh --full
+# All 237 packages from your current system (asks for confirmation)
 ```
 
-#### Option 3: Selective Installation
+**Original Package Lists:**
 ```bash
-./setup/install.sh --official    # Official packages only (214)
-./setup/install.sh --aur         # AUR packages only (23)
-./setup/install.sh --update      # Update system only
+./setup/install.sh --essential     # Original essentials (16 packages)
+./setup/install.sh --official      # All official packages (214)
+./setup/install.sh --aur           # All AUR packages (23)
+./setup/install.sh --aur-opt       # Essential AUR only (5 packages)
 ```
 
-#### Option 4: Manual Dotfiles Only
-If you already have packages installed:
+**Recommended Options:**
+```bash
+./setup/install.sh --minimal       # Ultra-fast (9 packages)
+./setup/install.sh --essential-opt # Recommended essentials (14 packages)
+./setup/install.sh --official-opt  # Core development (62 packages)
+```
+
+#### 🔧 Maintenance & Manual Setup
+
+**System Updates Only:**
+```bash
+./setup/install.sh --update
+```
+
+**Dotfiles Only (if packages already installed):**
 ```bash
 cd ~/dotfiles
 ./manage.sh stow
@@ -74,28 +102,52 @@ Comprehensive package installation for Arch Linux systems:
 
 #### Setup Modes Explained
 
-**`--essential`** (Recommended for new machines)
-- ✅ Core development tools (git, vim, zsh, tmux, docker, etc.)
-- ✅ Node.js, Python, and build tools
-- ✅ Yay (AUR helper) for future package management
-- ✅ Post-install configuration (Docker, Zsh as default shell)
-- ⚡ **Fast**: ~15-20 packages, quick installation
+**`--minimal`** (Ultra-fast development setup)
+- ✅ Essential development tools only (9 packages)
+- ✅ base-devel, git, vim, zsh, python, nodejs, docker
+- ✅ Perfect for servers or minimal environments
+- ⚡ **Fastest**: Minimal installation time and disk usage
+
+**`--essential-opt`** (Optimized essentials)
+- ✅ Core development tools without redundancies (14 packages)
+- ✅ Removed redundant python-pip, npm (included with python/nodejs)
+- ✅ Includes tmux, docker-compose, build tools
+- ⚡ **Fast**: Streamlined package list
+
+**`--official-opt`** (Core packages optimized)
+- ✅ 62 essential official packages
+- ✅ Removed KDE/Plasma desktop environment packages
+- ✅ Removed non-essential applications (Discord, games, etc.)
+- ✅ Includes all development tools, languages, and system utilities
+- 💡 **Balanced**: Full development environment without desktop bloat
+
+**`--essential`** (Original essentials - 16 packages)
+- ✅ Original essential list with some redundancies
+- ✅ Includes python-pip, npm separately
+- ✅ Good for compatibility with existing workflows
 
 **`--full`** (Complete system replication)
 - ✅ ALL 214 official repository packages
-- ✅ ALL 23 AUR packages
+- ✅ ALL 23 AUR packages including debug variants
 - ✅ Everything from your current system
 - ⚠️ **Slow**: Large download/installation, asks for confirmation
 - 💡 **Use when**: You want exact replica of current setup
 
-**`--official`** (Official packages only)
-- ✅ 214 packages from official Arch repositories
+**`--official`** (All official packages - 214 packages)
+- ✅ Every official package from your system
+- ✅ Includes KDE/Plasma, all applications
 - ❌ No AUR packages
 - ⚡ **Faster**: No AUR compilation required
 
-**`--aur`** (AUR packages only)
-- ✅ 23 packages from AUR
-- ✅ Requires Yay to be installed first
+**`--aur-opt`** (Essential AUR only - 5 packages)
+- ✅ Only essential AUR packages
+- ✅ Removed all debug packages and specific tools
+- ✅ google-chrome, google-cloud-cli, rustdesk, teams, yay
+- ✅ Much faster and more reliable than full AUR
+
+**`--aur`** (All AUR packages - 23 packages)
+- ✅ All AUR packages including debug variants
+- ✅ Includes specific tools (pgadmin4, sql-workbench, etc.)
 - ⚠️ **May fail**: Some AUR packages can be problematic
 
 **`--update`** (System maintenance)
@@ -107,9 +159,18 @@ Comprehensive package installation for Arch Linux systems:
 
 | File | Description | Count | Examples |
 |------|-------------|-------|----------|
-| `packages-essential.txt` | Core development tools | ~15 | git, vim, zsh, tmux, docker |
-| `packages-official.txt` | Official Arch packages | 214 | alacritty, python, nodejs, rust |
-| `packages-aur.txt` | AUR packages | 23 | yay, visual-studio-code-bin, etc. |
+| `packages-minimal.txt` | **Ultra-fast setup** | 9 | git, vim, zsh, python, nodejs, docker |
+| `packages-essential-optimized.txt` | **Optimized essentials** (recommended) | 14 | git, vim, zsh, tmux, docker, python, nodejs |
+| `packages-essential.txt` | Original essentials | 16 | git, vim, zsh, tmux, docker (+ python-pip, npm) |
+| `packages-official-optimized.txt` | **Core packages** (no desktop) | 62 | alacritty, code, git, python, rust, tmux, vim |
+| `packages-official.txt` | All official packages | 214 | alacritty, python, nodejs, rust (+ KDE/Plasma) |
+| `packages-aur-optimized.txt` | **Essential AUR only** | 5 | chrome, cloud-cli, rustdesk, teams, yay |
+| `packages-aur.txt` | All AUR packages | 23 | yay, chrome (+ debug packages, pgadmin4, etc.) |
+
+**Legend:**
+- **Bold** = Recommended for most users
+- **+** = Additional packages included
+- **Recommended progression:** `--minimal` → `--essential-opt` → `--official-opt`
 
 #### Updating Package Lists
 To capture new packages you've installed:
@@ -252,6 +313,32 @@ chsh -s /usr/bin/zsh
 - **Backup/restore**: Automatic backup of existing files
 - **Status checking**: Visual confirmation of stow status
 - **Cross-platform**: Works on any Unix-like system with Stow
+
+---
+
+## 🎯 **Which Option Should You Choose?**
+
+| Scenario | Recommended Option | Why |
+|----------|-------------------|-----|
+| **Fresh server/minimal VM** | `--minimal` | Fastest, minimal resource usage |
+| **Personal development machine** | `--essential-opt` | Perfect balance of tools and speed |
+| **Full development workstation** | `--official-opt` | All tools without desktop bloat |
+| **Exact replica of your setup** | `--full` | Everything from your current system |
+| **Testing/debugging** | `--update` | Just update existing packages |
+
+### 💡 **Quick Decision Guide:**
+
+- 🚀 **Speed matters**: `--minimal` or `--essential-opt`
+- 🛠️ **Need all development tools**: `--official-opt`
+- 📦 **Want exact replica**: `--full`
+- 🔧 **Already have packages**: Use `./manage.sh stow` for dotfiles only
+
+### ⚡ **Performance Comparison:**
+
+- `--minimal`: ~2 minutes, ~500MB disk
+- `--essential-opt`: ~5 minutes, ~2GB disk
+- `--official-opt`: ~15 minutes, ~8GB disk
+- `--full`: ~45+ minutes, ~15GB+ disk
 
 ---
 
