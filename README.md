@@ -185,6 +185,120 @@ pacman -Qm | cut -d' ' -f1 > setup/packages-aur.txt
 git add setup/ && git commit -m "Update package lists"
 ```
 
+## 🖥️ **Tmux Terminal Multiplexer**
+
+Your tmux configuration provides a powerful development environment with 9 pre-configured windows for the saas-platform project.
+
+### 🚀 **Getting Started with Tmux**
+
+**Start your development session:**
+```bash
+# Launch the pre-configured saas-platform session
+saas-dev
+
+# Or start tmux manually
+tmux new -s my-session
+```
+
+### ⌨️ **Essential Tmux Navigation**
+
+#### **Prefix Key Concept**
+- **Prefix**: `Ctrl-b` (press and release, then press the command key)
+- Example: `Ctrl-b` then `n` (next window)
+
+#### **Window Management**
+```bash
+# Basic window navigation
+Ctrl-b n          # Next window
+Ctrl-b p          # Previous window
+Ctrl-b 0-9        # Jump to window 0-9
+Ctrl-b w          # Interactive window list (arrow keys + Enter)
+Ctrl-b ,          # Rename current window
+Ctrl-b c          # Create new window
+Ctrl-b &          # Close current window
+
+# Your custom configuration windows:
+# 0: main      - Project root
+# 1: backend   - Backend services
+# 2: frontend  - Frontend application
+# 3: ai        - AI components
+# 4: gateway   - Platform gateway
+# 5: tools     - Development tools
+# 6: docker    - Docker infrastructure
+# 7: e2e       - E2E tests
+# 8: unified   - Unified components
+```
+
+#### **Pane Management**
+```bash
+# Split panes
+Ctrl-b %          # Split vertically (left/right)
+Ctrl-b "          # Split horizontally (top/bottom)
+
+# Navigate panes
+Ctrl-b →←↑↓      # Switch panes (arrow keys)
+Alt-→←↑↓         # Switch panes (Alt + arrows, no prefix!)
+Ctrl-b q          # Show pane numbers (then press number)
+
+# Pane operations
+Ctrl-b x          # Close current pane
+Ctrl-b z          # Zoom/unzoom pane (fullscreen)
+Ctrl-b {          # Move pane left
+Ctrl-b }          # Move pane right
+```
+
+#### **Session Management**
+```bash
+# Session commands
+Ctrl-b d          # Detach from session (keeps it running)
+Ctrl-b :          # Command mode (type commands)
+Ctrl-b ?          # Show all keybindings
+
+# Outside tmux (terminal commands)
+tmux ls           # List all sessions
+tmux attach       # Attach to last session
+tmux attach -t session-name  # Attach to specific session
+```
+
+### 🎯 **Your Optimized Tmux Setup**
+
+**Pre-configured for saas-platform development:**
+- **9 windows** covering all project components
+- **Vim-style navigation** (h,j,k,l keys)
+- **Mouse support** enabled
+- **256-color support** for modern terminals
+- **Automatic window renumbering**
+- **Tmux Plugin Manager (TPM)** installed with useful plugins
+
+**Quick commands:**
+```bash
+saas-dev          # Start saas-platform development session
+tdev              # Reattach to saas-dev session
+tmux kill-session # End session completely
+```
+
+### 💡 **Tmux Tips for Beginners**
+
+1. **Detach safely**: `Ctrl-b d` - Your work keeps running!
+2. **Multiple terminals**: One tmux session = many "virtual terminals"
+3. **Organization**: Use windows for different tasks, panes for related work
+4. **Persistence**: Sessions survive logout, network issues, etc.
+5. **Mouse mode**: Click windows/panes, scroll with mouse wheel
+
+### 🔧 **Tmux Plugins (Auto-installed)**
+
+Your setup includes:
+- **tpm**: Plugin manager
+- **tmux-sensible**: Sensible defaults
+- **tmux-yank**: Better copy/paste
+- **tmux-resurrect**: Save/restore sessions
+- **tmux-continuum**: Auto-save sessions
+- **vim-tmux-navigator**: Seamless vim/tmux navigation
+
+**Install plugins:** `Ctrl-b I` (capital I)
+
+---
+
 ## 📝 Manual Stow Usage
 
 ```bash
