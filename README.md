@@ -27,7 +27,7 @@ stow zsh
 | Package | Description | Files |
 |---------|-------------|-------|
 | **bash** | Bash shell configuration | `.bashrc`, `.bash_profile`, `.bash_logout` |
-| **git** | Git version control config | `.gitignore_global`, `.gitmessage` |
+| **git** | Git version control config | `.gitconfig`, `.gitignore_global`, `.gitmessage` |
 | **zsh** | Zsh shell with Powerlevel10k | `.zshrc`, `.p10k.zsh` |
 | **tmux** | Terminal multiplexer config | `.tmux.conf` |
 | **vim** | Vim/Neovim configuration | `.viminfo` |
@@ -71,7 +71,9 @@ cd ~/dotfiles && ./manage.sh stow
 ## ⚠️ Important Notes
 
 - **Backup first**: Always backup existing dotfiles before stowing
-- **SSH keys**: `.ssh/` directory is intentionally excluded (contains private keys)
+- **Security**: Never store private SSH keys, passwords, or API tokens in git
+- **SSH keys**: `.ssh/` directory is intentionally excluded (contains private keys like `id_rsa`, `id_ed25519`)
+- **Sensitive files**: Avoid committing `.env` files, credential files, or any file containing passwords/secrets
 - **Machine-specific**: Some files may need customization for different machines
 - **Dependencies**: Ensure required software is installed (zsh, tmux, vim, etc.)
 

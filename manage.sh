@@ -19,7 +19,7 @@ backup_files() {
     files_to_backup=(
         ".bashrc" ".bash_profile" ".bash_logout"
         ".zshrc" ".zshrc.backup" ".p10k.zsh"
-        ".gitignore_global" ".gitmessage"
+        ".gitconfig" ".gitignore_global" ".gitmessage"
         ".tmux.conf"
         ".viminfo"
     )
