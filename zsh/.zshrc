@@ -10,6 +10,17 @@ export TERM="xterm-256color"
 export COLORTERM="truecolor"
 [ -n "$TMUX" ] && export TERM="screen-256color"
 
+# Development shortcuts
+alias saas-dev="tmux new-session -A -s saas-dev"
+alias tmux-dev="tmux new-session -A -s saas-dev"
+
+# Fix for fish shell compatibility
+if [[ "$SHELL" == *"fish"* ]]; then
+    echo "⚠️  You're running fish shell. Switch to zsh/bash for full dotfiles support:"
+    echo "   chsh -s /usr/bin/zsh  # Set zsh as default"
+    echo "   or run: zsh           # Start zsh session"
+fi
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 

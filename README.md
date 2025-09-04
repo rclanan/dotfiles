@@ -393,6 +393,50 @@ If you install `git-delta`:
 
 ---
 
+## 🚀 **Quick Development Start**
+
+After setup, you can start your development environment with:
+
+```bash
+# Start SaaS platform development session
+saas-dev
+
+# Alternative alias
+tmux-dev
+```
+
+This will:
+- Create or attach to the `saas-dev` tmux session
+- Set up 9 windows for different parts of your platform
+- Automatically navigate to the correct directories
+- Display helpful status messages in each window
+
+### 🖼️ **Tmux Windows Layout**
+- **main**: Project root directory
+- **backend**: Backend services (`apps/backend/`)
+- **frontend**: Frontend application (`apps/frontend/`)
+- **ai**: AI components (`apps/ai/`)
+- **gateway**: Platform gateway (`apps/platform-gateway/`)
+- **tools**: Development tools (`apps/tools/`)
+- **docker**: Docker services (project root)
+- **e2e**: End-to-end tests (`apps/e2e-tests/`)
+- **unified**: Unified components (`apps/unified/`)
+
+### ⌨️ **Tmux Navigation**
+```bash
+# Switch windows
+Ctrl-a + [number]  # e.g., Ctrl-a + 1 for backend
+
+# Navigate panes
+Ctrl-a + [arrow]   # Move between panes
+
+# Detach from session
+Ctrl-a + d
+
+# Reattach to session
+tmux attach-session -t saas-dev
+```
+
 ## 🏗️ **Development Workflow Setup**
 
 Your dotfiles include a complete development environment setup with organized directory structure, documentation, and productivity tools:
