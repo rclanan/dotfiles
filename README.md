@@ -4,6 +4,13 @@ A collection of my personal dotfiles, managed and deployed using GNU Stow for ea
 
 ## 🚀 Quick Start
 
+### Option 1: One-Line Bootstrap (Recommended)
+```bash
+# Download and run the bootstrap script
+curl -fsSL https://raw.githubusercontent.com/rclanan/dotfiles/main/bootstrap.sh | bash
+```
+
+### Option 2: Manual Setup
 ```bash
 # Clone the repository
 git clone git@github.com:rclanan/dotfiles.git ~/dotfiles
@@ -34,8 +41,7 @@ stow zsh
 
 ## 🛠️ Management Scripts
 
-The repository includes a management script for easy dotfiles management:
-
+### Dotfiles Management
 ```bash
 ./manage.sh stow     # Install all packages (adopts existing files)
 ./manage.sh unstow   # Remove all symlinks
@@ -43,6 +49,31 @@ The repository includes a management script for easy dotfiles management:
 ./manage.sh restore  # Restore from backup
 ./manage.sh status   # Show current stow status
 ```
+
+### System Setup Scripts
+The repository includes automated setup scripts for Arch Linux systems:
+
+```bash
+# Essential development setup (recommended for new machines)
+./setup/install.sh --essential
+
+# Full system setup (all 214 official + 23 AUR packages)
+./setup/install.sh --full
+
+# Update system packages only
+./setup/install.sh --update
+
+# Install only official packages
+./setup/install.sh --official
+
+# Install only AUR packages
+./setup/install.sh --aur
+```
+
+**Package Lists:**
+- `setup/packages-essential.txt` - Core development tools
+- `setup/packages-official.txt` - All official repository packages (214 packages)
+- `setup/packages-aur.txt` - All AUR packages (23 packages)
 
 ## 📝 Manual Stow Usage
 
