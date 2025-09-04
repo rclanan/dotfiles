@@ -1,0 +1,36 @@
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.directory
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*~
+.project
+.classpath
+.settings/
+.nova/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+tmp/
+temp/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Claude Code context
+CLAUDE.md
