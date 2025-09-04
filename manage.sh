@@ -18,10 +18,10 @@ backup_files() {
     # List of files to backup
     files_to_backup=(
         ".bashrc" ".bash_profile" ".bash_logout"
+        ".zshrc" ".zshrc.backup" ".p10k.zsh"
         ".gitignore_global" ".gitmessage"
         ".tmux.conf"
         ".viminfo"
-        ".p10k.zsh"
     )
     
     for file in "${files_to_backup[@]}"; do
