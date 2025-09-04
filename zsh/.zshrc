@@ -134,6 +134,11 @@ alias gco='git checkout'
 # Path additions
 export PATH=$HOME/.local/bin:$HOME/.npm-global/bin:$PATH
 
+# Rust configuration
+if [ -f "$HOME/.cargo/env" ]; then
+    source "$HOME/.cargo/env"
+fi
+
 # NVM configuration
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"

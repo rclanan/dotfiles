@@ -61,6 +61,7 @@ curl -fsSL https://raw.githubusercontent.com/rclanan/dotfiles/main/bootstrap.sh 
 ./setup/install.sh --minimal       # Ultra-fast (9 packages)
 ./setup/install.sh --essential-opt # Recommended essentials (14 packages)
 ./setup/install.sh --official-opt  # Core development (62 packages)
+./setup/install.sh --postgresql    # PostgreSQL database setup
 ```
 
 #### 🔧 Maintenance & Manual Setup
@@ -71,8 +72,8 @@ curl -fsSL https://raw.githubusercontent.com/rclanan/dotfiles/main/bootstrap.sh 
 ```
 
 **Dotfiles Only (if packages already installed):**
-```bash
-cd ~/dotfiles
+  ```bash
+  cd ~/dotfiles
 ./manage.sh stow
 ```
 
@@ -299,6 +300,162 @@ Your setup includes:
 
 ---
 
+## 🚀 **Enhanced Git Configuration**
+
+Your dotfiles include a comprehensive Git setup with best practices and productivity tools:
+
+### 📝 **Commit Message Template**
+- **Conventional commits** format enforced
+- **Structured template** with type/scope/subject/body/footer
+- **Auto-loaded** for all commits (`commit.template = ~/.gitmessage`)
+
+### 🗂️ **Global Gitignore**
+- **OS files**: `.DS_Store`, `Thumbs.db`, `.directory`
+- **Editor files**: `.vscode/`, `.idea/`, `*.swp`, `*.swo`
+- **Temp files**: `*.tmp`, `*.temp`, `*.log`, `tmp/`, `temp/`
+- **Environment files**: `.env*`, `.env.local`
+- **Auto-applied** to all repositories (`core.excludesfile = ~/.gitignore_global`)
+
+### 🎨 **Advanced Git Features**
+
+#### **Enhanced Diffs**
+- **Histogram algorithm** for better diff accuracy
+- **Color moved lines** with zebra striping
+- **Delta integration** (optional - install `git-delta` for syntax-highlighted diffs)
+
+#### **Smart Workflow Settings**
+- **Auto-setup remotes** for new branches
+- **Rebase on pull** to maintain clean history
+- **Auto-squash fixup commits**
+- **Auto-stash during rebase**
+- **Default to `main` branch** for new repos
+
+#### **Productivity Aliases**
+```bash
+# Quick status
+git st           # Short status
+git staged       # Show staged changes
+git unstaged     # Show unstaged changes
+git untracked    # Show untracked files
+
+# Branch management
+git cob feature  # Create and checkout branch
+git del branch   # Delete branch safely
+git branches     # List all branches by last commit
+
+# Advanced logging
+git graph        # Visual branch graph (last 20)
+git changes      # Commits from last week
+git who          # Contributors by commit count
+git standup      # Your commits since yesterday
+
+# Remote operations
+git up           # Fetch and rebase current branch
+git pushup       # Push current branch
+git track        # Track remote branch
+
+# Cleanup
+git cleanup      # Remove merged local branches
+git cleanup-remote  # Remove merged remote branches
+```
+
+#### **Optional Delta Setup**
+If you install `git-delta`:
+```bash
+# Uncomment delta section in ~/.gitconfig
+# Or run: git config --global core.pager delta
+```
+
+---
+
+## 🏗️ **Development Workflow Setup**
+
+Your dotfiles include a complete development environment setup with organized directory structure, documentation, and productivity tools:
+
+### 📁 **Directory Structure**
+```bash
+~/dev/
+├── projects/          # Main development work
+│   ├── personal/      # Personal projects by language
+│   ├── work/          # Work-related projects
+│   ├── learning/      # Educational projects
+│   └── experiments/   # Experimental code
+├── sandbox/           # Temporary/test code
+├── forks/            # Forked repositories
+├── archive/          # Archived projects
+├── tools/            # Development tools & templates
+└── scripts/          # Global utility scripts
+```
+
+### 🚀 **Quick Setup Commands**
+```bash
+# Set up directory structure
+./setup/setup-dev-dirs.sh
+
+# Create documentation
+./setup/setup-dev-docs.sh
+
+# Create gitignore templates
+./setup/setup-gitignore-templates.sh
+
+# Add helpful shell aliases
+./setup/setup-dev-aliases.sh
+```
+
+### 🛠️ **Shell Aliases (after setup)**
+```bash
+# Directory navigation
+dev              # cd ~/dev
+projects         # cd ~/dev/projects
+work             # cd ~/dev/projects/work
+personal         # cd ~/dev/projects/personal
+learning         # cd ~/dev/projects/learning
+sandbox          # cd ~/dev/sandbox
+tools            # cd ~/dev/tools
+
+# Project management
+mkproject <name>        # Create new project with git init
+archiveproject <name>   # Move project to archive
+lsp                     # List all projects
+
+# Gitignore templates
+gitignore-py            # Copy Python gitignore
+gitignore-node          # Copy Node.js gitignore
+gitignore-go            # Copy Go gitignore
+gitignore-general       # Copy general gitignore
+
+# Quick git commands
+gs, ga, gc, gp, gl, gb, gco
+
+# Development servers
+pyserver                # Start Python HTTP server
+jsserver                # Start Node.js HTTP server
+killport <port>         # Kill process on port
+```
+
+### 📋 **Gitignore Templates Available**
+Located in `~/dev/tools/templates/gitignore/`:
+- **python.gitignore** - Python-specific patterns
+- **node.gitignore** - Node.js/npm/yarn patterns
+- **rust.gitignore** - Rust/Cargo patterns
+- **go.gitignore** - Go-specific patterns
+- **general.gitignore** - Cross-platform patterns
+
+### 📖 **Best Practices Included**
+1. **Project Naming**: Use kebab-case (my-project-name)
+2. **Version Control**: Initialize git for all projects
+3. **Documentation**: Every project should have a README.md
+4. **Archive**: Move inactive projects to `archive/`
+5. **Forks**: Keep forks separate from original work
+
+### 🔄 **Integration with Existing Setup**
+- **Tmux sessions** can be created for any project in `~/dev/projects/`
+- **Git configuration** applies to all projects automatically
+- **Shell aliases** work alongside your existing Zsh/Bash setup
+- **Docker** can be used for any project development
+
+---
+
 ## 📝 Manual Stow Usage
 
 ```bash
@@ -390,6 +547,47 @@ newgrp docker
 # Set manually
 chsh -s /usr/bin/zsh
 # Restart terminal
+```
+
+## 🐘 **PostgreSQL Database Setup**
+
+PostgreSQL setup is now included as a dedicated installation option:
+
+```bash
+./setup/install.sh --postgresql
+```
+
+### What gets installed:
+- **PostgreSQL server** with automatic service management
+- **Database initialization** and user creation
+- **User permissions** setup for your username
+- **Service enablement** and startup
+
+### PostgreSQL Usage:
+```bash
+# Connect to PostgreSQL
+psql -U $USER -d postgres
+
+# Check service status
+sudo systemctl status postgresql.service
+
+# Restart service
+sudo systemctl restart postgresql.service
+
+# View logs
+sudo journalctl -u postgresql.service -f
+```
+
+### Database Management:
+```bash
+# Create a new database
+createdb myproject
+
+# List all databases
+psql -U $USER -l
+
+# Connect to specific database
+psql -U $USER -d myproject
 ```
 
 ### Getting Help

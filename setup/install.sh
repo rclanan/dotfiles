@@ -164,6 +164,52 @@ post_install_setup() {
     fi
 }
 
+# Verify installations
+verify_installations() {
+    log "Verifying installations..."
+    echo ""
+
+    # Python
+    if command -v python &> /dev/null; then
+        echo "✓ Python $(python --version 2>&1)"
+    else
+        echo "✗ Python not found"
+    fi
+
+    # Node.js
+    if command -v node &> /dev/null; then
+        echo "✓ Node.js $(node --version)"
+    fi
+
+    # Docker
+    if command -v docker &> /dev/null; then
+        echo "✓ Docker $(docker --version 2>&1)"
+    fi
+
+    # Git
+    if command -v git &> /dev/null; then
+        echo "✓ Git $(git --version)"
+    fi
+
+    # Rust
+    if command -v rustc &> /dev/null; then
+        echo "✓ Rust $(rustc --version 2>&1 | head -1)"
+    fi
+
+    # PostgreSQL
+    if command -v psql &> /dev/null; then
+        echo "✓ PostgreSQL $(postgres --version 2>&1)"
+    fi
+
+    # Zsh
+    if command -v zsh &> /dev/null; then
+        echo "✓ Zsh $(zsh --version)"
+    fi
+
+    echo ""
+    log "Verification complete!"
+}
+
 # Show usage information
 usage() {
     echo "Universal Development Environment Setup Script"
@@ -179,6 +225,7 @@ usage() {
     echo "  --official-opt       Install official packages (optimized)"
     echo "  --aur                Install only AUR packages"
     echo "  --aur-opt            Install AUR packages (optimized, no debug packages)"
+    echo "  --postgresql         Install and setup PostgreSQL"
     echo "  --update             Update system packages only"
     echo "  --help               Show this help message"
     echo ""
@@ -231,6 +278,10 @@ main() {
         install_mode="aur-optimized"
         shift
         ;;
+    --postgresql)
+        install_mode="postgresql"
+        shift
+        ;;
     --update)
         install_mode="update"
         shift
@@ -262,6 +313,7 @@ main() {
             install_official_packages "$ESSENTIAL_PACKAGES"
             setup_dotfiles
             post_install_setup
+            verify_installations
             log "Essential setup complete! 🎉"
             ;;
         "essential-optimized")
@@ -272,6 +324,7 @@ main() {
             install_official_packages "$SETUP_DIR/packages-essential-optimized.txt"
             setup_dotfiles
             post_install_setup
+            verify_installations
             log "Essential optimized setup complete! 🎉"
             ;;
         "minimal")
@@ -282,6 +335,7 @@ main() {
             install_official_packages "$SETUP_DIR/packages-minimal.txt"
             setup_dotfiles
             post_install_setup
+            verify_installations
             log "Minimal setup complete! 🎉"
             ;;
         "full")
@@ -302,6 +356,7 @@ main() {
             install_aur_packages "$AUR_PACKAGES"
             setup_dotfiles
             post_install_setup
+            verify_installations
             log "Full setup complete! 🎉"
             ;;
         "official")
@@ -311,6 +366,7 @@ main() {
             install_official_packages "$OFFICIAL_PACKAGES"
             setup_dotfiles
             post_install_setup
+            verify_installations
             ;;
         "official-optimized")
             log "Installing Official Repository Packages (Optimized)"
@@ -319,6 +375,7 @@ main() {
             install_official_packages "$SETUP_DIR/packages-official-optimized.txt"
             setup_dotfiles
             post_install_setup
+            verify_installations
             ;;
         "aur")
             log "Installing AUR Packages Only"
@@ -331,6 +388,13 @@ main() {
             check_system
             install_yay
             install_aur_packages "$SETUP_DIR/packages-aur-optimized.txt"
+            ;;
+        "postgresql")
+            log "Setting up PostgreSQL"
+            log "===================="
+            check_system
+            update_system
+            "$SETUP_DIR/setup-postgresql.sh"
             ;;
         "update")
             log "Updating System Packages"
