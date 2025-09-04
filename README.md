@@ -659,6 +659,51 @@ rm ~/.config/powermanagementprofilesrc
 killall plasmashell && kstart6 plasmashell
 ```
 
+## 🖼️ **Tmux Session Management**
+
+### Cleaning Up Duplicate Windows:
+If you see duplicate windows in your saas-dev session:
+```bash
+# Kill all tmux sessions (be careful - this closes all tmux sessions)
+tmux kill-server
+
+# Or kill specific session
+tmux kill-session -t saas-dev
+
+# Then restart tmux to recreate the session cleanly
+tmux
+```
+
+### Window Management:
+```bash
+# List all windows in current session
+tmux list-windows
+
+# Kill specific window by number
+tmux kill-window -t :2
+
+# Kill window by name
+tmux kill-window -t backend
+
+# Rename window
+tmux rename-window "new-name"
+```
+
+### Session Management:
+```bash
+# List all sessions
+tmux list-sessions
+
+# Switch to different session
+tmux switch-client -t session-name
+
+# Detach from current session
+tmux detach
+
+# Attach to specific session
+tmux attach-session -t session-name
+```
+
 ## 🖥️ **Terminal ANSI Escape Sequence Fix**
 
 If you see garbled ANSI escape sequences like `^[]10;rgb:...^[\` in your terminal output, this is a common issue with tmux and terminal color handling.
