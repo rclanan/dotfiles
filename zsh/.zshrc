@@ -443,10 +443,16 @@ switch_to_x11() {
 export DOCKER_BUILDKIT=1
 export COMPOSE_DOCKER_CLI_BUILD=1
 
-# Development session aliases for RustDesk remote access
+# Development session aliases - flexible for multiple projects
 alias saas-dev='tmux attach-session -t saas-dev || tmux new-session -s saas-dev -c ~/dev/projects/work/saas-platform'
 alias dev-session='saas-dev'
 alias tdev='tmux attach-session -t saas-dev'
+
+# Quick access to different projects
+alias cd-saas='cd ~/dev/projects/work/saas-platform'
+alias cd-apiary='cd ~/dev/projects/work/apiary-pro-saas'
+alias cd-saasy='cd ~/dev/projects/work/saasy'
+alias work='cd ~/dev/projects/work'
 
 # RustDesk optimization aliases
 alias rustdesk-opt='rustdesk-optimized'
