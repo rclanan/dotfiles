@@ -5,6 +5,11 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+# Terminal capabilities and color support
+export TERM="xterm-256color"
+export COLORTERM="truecolor"
+[ -n "$TMUX" ] && export TERM="screen-256color"
+
 # History settings
 export HISTSIZE=10000
 export HISTFILESIZE=20000

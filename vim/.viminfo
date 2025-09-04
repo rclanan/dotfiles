@@ -12,7 +12,7 @@
 ~h
 # Command Line History (newest to oldest):
 :q
-|2,0,1757004615,,"q"
+|2,0,1757009904,,"q"
 :q!
 |2,0,1756916893,,"q!"
 :wq
@@ -40,36 +40,48 @@
 |3,1,36,0,1,0,1754491406,"}"
 
 # File marks:
-'0  23  38  ~/.zshrc
-|4,48,23,38,1757004615,"~/.zshrc"
-'1  1  0  ~/.config/pip/pip.conf
-|4,49,1,0,1756916893,"~/.config/pip/pip.conf"
-'2  1  0  /etc/systemd/system/nexus.service
-|4,50,1,0,1756915602,"/etc/systemd/system/nexus.service"
+'0  54  0  ~/hardware_report.txt
+|4,48,54,0,1757009904,"~/hardware_report.txt"
+'1  23  38  ~/.zshrc
+|4,49,23,38,1757004615,"~/.zshrc"
+'2  1  0  ~/.config/pip/pip.conf
+|4,50,1,0,1756916893,"~/.config/pip/pip.conf"
 '3  1  0  /etc/systemd/system/nexus.service
-|4,51,1,0,1756915564,"/etc/systemd/system/nexus.service"
-'4  28  18  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
-|4,52,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
-'5  135  56  ~/setup-git-config.sh
-|4,53,135,56,1754498523,"~/setup-git-config.sh"
-'6  8  4  ~/dotfiles/README.md
-|4,54,8,4,1754496606,"~/dotfiles/README.md"
-'7  73  85  ~/.zshrc
-|4,55,73,85,1754496441,"~/.zshrc"
+|4,51,1,0,1756915602,"/etc/systemd/system/nexus.service"
+'4  1  0  /etc/systemd/system/nexus.service
+|4,52,1,0,1756915564,"/etc/systemd/system/nexus.service"
+'5  28  18  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,53,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+'6  135  56  ~/setup-git-config.sh
+|4,54,135,56,1754498523,"~/setup-git-config.sh"
+'7  8  4  ~/dotfiles/README.md
+|4,55,8,4,1754496606,"~/dotfiles/README.md"
 '8  73  85  ~/.zshrc
 |4,56,73,85,1754496441,"~/.zshrc"
-'9  11  37  ~/.zshrc
-|4,57,11,37,1754496407,"~/.zshrc"
+'9  73  85  ~/.zshrc
+|4,57,73,85,1754496441,"~/.zshrc"
 
 # Jumplist (newest first):
+-'  54  0  ~/hardware_report.txt
+|4,39,54,0,1757009904,"~/hardware_report.txt"
+-'  1  0  ~/hardware_report.txt
+|4,39,1,0,1757009894,"~/hardware_report.txt"
 -'  23  38  ~/.zshrc
 |4,39,23,38,1757004615,"~/.zshrc"
+-'  23  38  ~/.zshrc
+|4,39,23,38,1757004615,"~/.zshrc"
+-'  73  38  ~/.zshrc
+|4,39,73,38,1757004608,"~/.zshrc"
 -'  73  38  ~/.zshrc
 |4,39,73,38,1757004608,"~/.zshrc"
 -'  1  0  ~/.config/pip/pip.conf
 |4,39,1,0,1756916893,"~/.config/pip/pip.conf"
 -'  1  0  ~/.config/pip/pip.conf
 |4,39,1,0,1756916893,"~/.config/pip/pip.conf"
+-'  1  0  ~/.config/pip/pip.conf
+|4,39,1,0,1756916893,"~/.config/pip/pip.conf"
+-'  1  0  ~/.config/pip/pip.conf
+|4,39,1,0,1756916893,"~/.config/pip/pip.conf"
 -'  1  0  /etc/systemd/system/nexus.service
 |4,39,1,0,1756915602,"/etc/systemd/system/nexus.service"
 -'  1  0  /etc/systemd/system/nexus.service
@@ -78,6 +90,22 @@
 |4,39,1,0,1756915602,"/etc/systemd/system/nexus.service"
 -'  1  0  /etc/systemd/system/nexus.service
 |4,39,1,0,1756915602,"/etc/systemd/system/nexus.service"
+-'  1  0  /etc/systemd/system/nexus.service
+|4,39,1,0,1756915602,"/etc/systemd/system/nexus.service"
+-'  1  0  /etc/systemd/system/nexus.service
+|4,39,1,0,1756915602,"/etc/systemd/system/nexus.service"
+-'  1  0  /etc/systemd/system/nexus.service
+|4,39,1,0,1756915602,"/etc/systemd/system/nexus.service"
+-'  1  0  /etc/systemd/system/nexus.service
+|4,39,1,0,1756915602,"/etc/systemd/system/nexus.service"
+-'  1  0  /etc/systemd/system/nexus.service
+|4,39,1,0,1756915564,"/etc/systemd/system/nexus.service"
+-'  1  0  /etc/systemd/system/nexus.service
+|4,39,1,0,1756915564,"/etc/systemd/system/nexus.service"
+-'  1  0  /etc/systemd/system/nexus.service
+|4,39,1,0,1756915564,"/etc/systemd/system/nexus.service"
+-'  1  0  /etc/systemd/system/nexus.service
+|4,39,1,0,1756915564,"/etc/systemd/system/nexus.service"
 -'  1  0  /etc/systemd/system/nexus.service
 |4,39,1,0,1756915564,"/etc/systemd/system/nexus.service"
 -'  1  0  /etc/systemd/system/nexus.service
@@ -118,6 +146,70 @@
 |4,39,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
 -'  28  18  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
 |4,39,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  28  18  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  28  18  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  28  18  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  28  18  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  28  18  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  28  18  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  28  18  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  28  18  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  28  18  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  28  18  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  28  18  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  28  18  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  28  18  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  28  18  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  28  18  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  28  18  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,28,18,1756503870,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  1  0  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,1,0,1756503853,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  1  0  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,1,0,1756503853,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  1  0  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,1,0,1756503853,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  1  0  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,1,0,1756503853,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  1  0  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,1,0,1756503853,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  1  0  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,1,0,1756503853,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  1  0  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,1,0,1756503853,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  1  0  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,1,0,1756503853,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  1  0  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,1,0,1756503853,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  1  0  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,1,0,1756503853,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  1  0  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,1,0,1756503853,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  1  0  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,1,0,1756503853,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  1  0  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,1,0,1756503853,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  1  0  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,1,0,1756503853,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  1  0  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,1,0,1756503853,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
+-'  1  0  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
+|4,39,1,0,1756503853,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
 -'  1  0  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
 |4,39,1,0,1756503853,"~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md"
 -'  1  0  ~/dev/projects/work/saas-platform/.claude/agents/code-reviewer.md
@@ -170,100 +262,12 @@
 |4,39,135,56,1754498523,"~/setup-git-config.sh"
 -'  135  56  ~/setup-git-config.sh
 |4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  135  56  ~/setup-git-config.sh
-|4,39,135,56,1754498523,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
--'  1  0  ~/setup-git-config.sh
-|4,39,1,0,1754498468,"~/setup-git-config.sh"
 
 # History of marks within files (newest to oldest):
+
+> ~/hardware_report.txt
+	*	1757009902	0
+	"	54	0
 
 > ~/.zshrc
 	*	1757004612	0

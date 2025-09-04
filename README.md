@@ -635,6 +635,38 @@ rm ~/.config/powermanagementprofilesrc
 killall plasmashell && kstart6 plasmashell
 ```
 
+## 🖥️ **Terminal ANSI Escape Sequence Fix**
+
+If you see garbled ANSI escape sequences like `^[]10;rgb:...^[\` in your terminal output, this is a common issue with tmux and terminal color handling.
+
+### Quick Fix:
+```bash
+# Reload tmux configuration
+tmux source ~/.tmux.conf
+
+# Restart your terminal session
+# Or run: exec $SHELL
+```
+
+### What was fixed:
+- **Terminal Type**: Updated from `screen-256color` to `xterm-256color`
+- **True Color Support**: Added `Tc` capability for proper color rendering
+- **OSC Sequence Handling**: Added proper clipboard and color sequence support
+- **Shell Integration**: Added TERM/COLORTERM exports for both bash and zsh
+
+### If issues persist:
+```bash
+# Check your terminal capabilities
+echo $TERM
+echo $COLORTERM
+
+# Force reload shell configuration
+source ~/.bashrc  # or ~/.zshrc
+
+# Test color output
+echo -e "\033[31mRed\033[32mGreen\033[34mBlue\033[0m"
+```
+
 ### Getting Help
 ```bash
 # Check setup script help
