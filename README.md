@@ -322,7 +322,31 @@ Your dotfiles include a comprehensive Git setup with best practices and producti
 #### **Enhanced Diffs**
 - **Histogram algorithm** for better diff accuracy
 - **Color moved lines** with zebra striping
-- **Delta integration** (optional - install `git-delta` for syntax-highlighted diffs)
+- **Git-delta integration** - Syntax-highlighted, side-by-side diffs with navigation
+
+#### **🎨 Git-Delta Features**
+Git-delta is included in the optimized package list and provides:
+- **Syntax highlighting** for diffs
+- **Side-by-side view** for easy comparison
+- **Line numbers** for precise location
+- **Hyperlinks** in supported terminals
+- **Navigation** through diff hunks
+- **Automatic dark/light theme** detection
+
+```bash
+# Install git-delta (automatically included)
+./setup/install.sh --official-opt
+
+# View enhanced diffs
+git diff
+git log --patch
+git show HEAD
+
+# Interactive features
+# Use 'n'/'p' to navigate between diff hunks
+# Use 'j'/'k' to scroll within hunks
+# Use 'q' to quit
+```
 
 #### **Smart Workflow Settings**
 - **Auto-setup remotes** for new branches

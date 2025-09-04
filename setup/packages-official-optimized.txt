@@ -18,6 +18,7 @@ fail2ban
 fd
 fzf
 git
+git-delta
 git-filter-repo
 git-lfs
 github-cli
