@@ -1,0 +1,6 @@
+# Essential AUR Packages (Optimized - No Debug Packages)
+google-chrome
+google-cloud-cli
+rustdesk
+teams
+yay

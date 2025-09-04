@@ -1,0 +1,14 @@
+# Essential Development Packages (Optimized)
+base-devel
+git
+vim
+zsh
+tmux
+curl
+wget
+openssh
+python
+nodejs
+docker
+docker-compose
+yay

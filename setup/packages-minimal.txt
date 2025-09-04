@@ -1,0 +1,10 @@
+# Minimal Development Setup (Fastest)
+base-devel
+git
+vim
+zsh
+curl
+python
+nodejs
+docker
+yay

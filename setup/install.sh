@@ -171,17 +171,23 @@ usage() {
     echo "Usage: $0 [OPTIONS]"
     echo ""
     echo "Options:"
-    echo "  --essential    Install only essential development packages"
-    echo "  --full         Install all packages (official + AUR)"
-    echo "  --official     Install only official repository packages"
-    echo "  --aur          Install only AUR packages"
-    echo "  --update       Update system packages only"
-    echo "  --help         Show this help message"
+    echo "  --essential          Install essential development packages"
+    echo "  --essential-opt      Install essential packages (optimized, no redundancies)"
+    echo "  --minimal            Install minimal development setup (fastest)"
+    echo "  --full               Install all packages (official + AUR)"
+    echo "  --official           Install only official repository packages"
+    echo "  --official-opt       Install official packages (optimized)"
+    echo "  --aur                Install only AUR packages"
+    echo "  --aur-opt            Install AUR packages (optimized, no debug packages)"
+    echo "  --update             Update system packages only"
+    echo "  --help               Show this help message"
     echo ""
     echo "Examples:"
-    echo "  $0 --essential    # Install basic development setup"
-    echo "  $0 --full         # Install everything (214 official + 23 AUR packages)"
-    echo "  $0 --update       # Just update system"
+    echo "  $0 --minimal           # Fastest setup (9 packages)"
+    echo "  $0 --essential-opt     # Optimized development setup (14 packages)"
+    echo "  $0 --official-opt      # Core packages without KDE (62 packages)"
+    echo "  $0 --full              # Everything (214 official + 23 AUR packages)"
+    echo "  $0 --update            # Just update system"
     echo ""
     echo "Note: This script is designed for Arch Linux systems."
 }
@@ -193,26 +199,42 @@ main() {
     # Parse command line arguments
     while [[ $# -gt 0 ]]; do
         case $1 in
-            --essential)
-                install_mode="essential"
-                shift
-                ;;
-            --full)
-                install_mode="full"
-                shift
-                ;;
-            --official)
-                install_mode="official"
-                shift
-                ;;
-            --aur)
-                install_mode="aur"
-                shift
-                ;;
-            --update)
-                install_mode="update"
-                shift
-                ;;
+                --essential)
+        install_mode="essential"
+        shift
+        ;;
+    --essential-optimized|--essential-opt)
+        install_mode="essential-optimized"
+        shift
+        ;;
+    --minimal)
+        install_mode="minimal"
+        shift
+        ;;
+    --full)
+        install_mode="full"
+        shift
+        ;;
+    --official)
+        install_mode="official"
+        shift
+        ;;
+    --official-optimized|--official-opt)
+        install_mode="official-optimized"
+        shift
+        ;;
+    --aur)
+        install_mode="aur"
+        shift
+        ;;
+    --aur-optimized|--aur-opt)
+        install_mode="aur-optimized"
+        shift
+        ;;
+    --update)
+        install_mode="update"
+        shift
+        ;;
             --help|-h)
                 usage
                 exit 0
@@ -242,6 +264,26 @@ main() {
             post_install_setup
             log "Essential setup complete! 🎉"
             ;;
+        "essential-optimized")
+            log "Starting Essential Development Setup (Optimized)"
+            log "==============================================="
+            check_system
+            update_system
+            install_official_packages "$SETUP_DIR/packages-essential-optimized.txt"
+            setup_dotfiles
+            post_install_setup
+            log "Essential optimized setup complete! 🎉"
+            ;;
+        "minimal")
+            log "Starting Minimal Development Setup"
+            log "=================================="
+            check_system
+            update_system
+            install_official_packages "$SETUP_DIR/packages-minimal.txt"
+            setup_dotfiles
+            post_install_setup
+            log "Minimal setup complete! 🎉"
+            ;;
         "full")
             log "Starting Full System Setup (All Packages)"
             log "=========================================="
@@ -270,11 +312,25 @@ main() {
             setup_dotfiles
             post_install_setup
             ;;
+        "official-optimized")
+            log "Installing Official Repository Packages (Optimized)"
+            check_system
+            update_system
+            install_official_packages "$SETUP_DIR/packages-official-optimized.txt"
+            setup_dotfiles
+            post_install_setup
+            ;;
         "aur")
             log "Installing AUR Packages Only"
             check_system
             install_yay
             install_aur_packages "$AUR_PACKAGES"
+            ;;
+        "aur-optimized")
+            log "Installing AUR Packages (Optimized)"
+            check_system
+            install_yay
+            install_aur_packages "$SETUP_DIR/packages-aur-optimized.txt"
             ;;
         "update")
             log "Updating System Packages"
