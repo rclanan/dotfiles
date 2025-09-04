@@ -20,8 +20,12 @@ id_*
 # GPG keys
 .gnupg/
 
-# Docker credentials
+# Docker credentials and tokens
 .docker/
+.docker/*.token_seed*
+
+# NPM tokens and credentials
+.npmrc
 
 # Machine-specific files
 .hosts

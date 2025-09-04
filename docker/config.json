@@ -1,0 +1,19 @@
+{
+  "features": {
+    "buildkit": true
+  },
+  "experimental": false,
+  "builder": {
+    "gc": {
+      "enabled": true,
+      "defaultKeepStorage": "20GB"
+    }
+  },
+  "registry-mirrors": [],
+  "insecure-registries": [],
+  "debug": false,
+  "log-opts": {
+    "max-size": "10m",
+    "max-file": "3"
+  }
+}

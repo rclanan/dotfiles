@@ -22,6 +22,7 @@ backup_files() {
         ".gitconfig" ".gitignore_global" ".gitmessage"
         ".tmux.conf"
         ".viminfo"
+        ".npmrc" ".pythonrc.py" ".pip.conf"
     )
     
     for file in "${files_to_backup[@]}"; do
@@ -37,7 +38,7 @@ stow_packages() {
     echo -e "${GREEN}Stowing packages...${NC}"
     cd "$STOW_DIR"
 
-    packages=("bash" "git" "tmux" "vim" "zsh")
+    packages=("bash" "docker" "git" "npm" "python" "tmux" "vim" "zsh")
 
     for package in "${packages[@]}"; do
         if [ -d "$package" ]; then
@@ -57,8 +58,8 @@ stow_packages() {
 unstow_packages() {
     echo -e "${YELLOW}Unstowing packages...${NC}"
     cd "$STOW_DIR"
-    
-    packages=("bash" "git" "tmux" "vim" "zsh")
+
+    packages=("bash" "docker" "git" "npm" "python" "tmux" "vim" "zsh")
     
     for package in "${packages[@]}"; do
         if [ -d "$package" ]; then
@@ -103,7 +104,7 @@ case "$1" in
         echo -e "${GREEN}Current stow status:${NC}"
         cd "$STOW_DIR"
 
-        packages=("bash" "git" "tmux" "vim" "zsh")
+        packages=("bash" "docker" "git" "npm" "python" "tmux" "vim" "zsh")
 
         for package in "${packages[@]}"; do
             if [ -d "$package" ]; then

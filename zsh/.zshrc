@@ -643,6 +643,70 @@ export PATH="$(npm config get prefix 2>/dev/null || echo ~/.npm-global)/bin:$PAT
 export PATH=~/.npm-global/bin:$PATH
 
 
+# Enhanced terminal experience for Zsh
+
+# Better less behavior with color support
+export LESS='-R --use-color -Dd+r$Du+b$'
+export LESS_TERMCAP_md=$'\e[1;34m'     # bold mode
+export LESS_TERMCAP_me=$'\e[0m'       # end bold mode
+export LESS_TERMCAP_se=$'\e[0m'       # end standout mode
+export LESS_TERMCAP_so=$'\e[01;31m'   # standout mode
+export LESS_TERMCAP_ue=$'\e[0m'       # end underline mode
+export LESS_TERMCAP_us=$'\e[1;32m'    # underline mode
+
+# FZF configurations (if installed)
+if command -v fzf &> /dev/null; then
+    export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+    export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --exclude .git"
+fi
+
+# Enhanced Docker aliases (beyond the existing ones)
+if command -v docker &> /dev/null; then
+    alias d='docker'
+    alias dc='docker-compose'
+    alias dps='docker ps'
+    alias di='docker images'
+    alias dcl='docker-compose logs'
+    alias dcu='docker-compose up -d'
+    alias dcd='docker-compose down'
+    alias dex='docker exec -it'
+    alias dlog='docker logs'
+    alias drm='docker rm'
+    alias drmi='docker rmi'
+fi
+
+# Python aliases and enhancements
+if command -v python &> /dev/null; then
+    alias py='python'
+    alias pip='python -m pip'
+    alias venv='python -m venv'
+    alias py3='python3'
+    alias pip3='python3 -m pip'
+fi
+
+# Node.js aliases and enhancements
+if command -v node &> /dev/null; then
+    alias n='npm'
+    alias ni='npm install'
+    alias ns='npm start'
+    alias nt='npm test'
+    alias nr='npm run'
+    alias nrd='npm run dev'
+    alias nrb='npm run build'
+    alias nrl='npm run lint'
+fi
+
+# Enhanced directory colors
+if command -v dircolors &> /dev/null; then
+    if [ -r ~/.dircolors ]; then
+        eval "$(dircolors -b ~/.dircolors)"
+    else
+        eval "$(dircolors -b)"
+    fi
+fi
+
 # pnpm
 export PNPM_HOME="/home/rclanan/.local/share/pnpm"
 case ":$PATH:" in

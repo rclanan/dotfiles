@@ -5,7 +5,7 @@
 	editor = vim
 	autocrlf = input
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
-	excludesfile = /home/rclanan/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [color]
 	ui = true
 	branch = auto
@@ -40,4 +40,68 @@
 	fixup = commit --fixup
 	branches = branch -a --sort=-committerdate
 [commit]
-	template = /home/rclanan/.gitmessage
+	template = ~/.gitmessage
+	gpgsign = false
+
+[init]
+	defaultBranch = main
+
+[fetch]
+	prune = true
+
+[pull]
+	rebase = true
+
+[diff]
+	renames = true
+	algorithm = histogram
+
+[difftool]
+	prompt = false
+
+[mergetool]
+	prompt = false
+
+[alias]
+	# Status and info
+	st = status -sb
+	staged = diff --cached
+	unstaged = diff
+	untracked = ls-files --others --exclude-standard
+
+	# Branching
+	br = branch
+	co = checkout
+	cob = checkout -b
+	del = branch -D
+
+	# Committing
+	ci = commit
+	ca = commit --amend
+	can = commit --amend --no-edit
+	wip = commit -am "WIP"
+	fixup = commit --fixup
+	squash = commit --squash
+
+	# Logging
+	last = log -1 HEAD --stat
+	ll = log --oneline --graph --decorate
+	lll = log --oneline --graph --decorate --all
+	graph = log --oneline --graph --decorate --all -20
+	changes = log --oneline --since="1 week ago"
+	who = shortlog -sn --no-merges
+
+	# Working with remotes
+	up = !git fetch origin && git rebase origin/$(git rev-parse --abbrev-ref HEAD)
+	pushup = !git push origin $(git rev-parse --abbrev-ref HEAD)
+	track = branch --set-upstream-to=origin/$(git rev-parse --abbrev-ref HEAD)
+
+	# Cleanup
+	cleanup = !git branch --merged | grep -v '\\*\\|main\\|master' | xargs -n 1 git branch -d
+	cleanup-remote = !git branch -r --merged | grep -v '\\*\\|main\\|master' | sed 's/origin\\///' | xargs -n 1 git push --delete origin
+
+	# Advanced operations
+	root = rev-parse --show-toplevel
+	edit = !vim $(git root)/.git/COMMIT_EDITMSG
+	contributors = shortlog --summary --numbered
+	standup = log --since yesterday --author="$(git config user.name)" --oneline

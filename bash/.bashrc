@@ -180,6 +180,56 @@ export CLAUDE_CODE_EDITOR="${EDITOR:-vim}"
 
 
 
+# Enhanced color support for various commands
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
+# Better less behavior with color support
+export LESS='-R --use-color -Dd+r$Du+b$'
+export LESS_TERMCAP_md=$'\e[1;34m'     # bold mode
+export LESS_TERMCAP_me=$'\e[0m'       # end bold mode
+export LESS_TERMCAP_se=$'\e[0m'       # end standout mode
+export LESS_TERMCAP_so=$'\e[01;31m'   # standout mode
+export LESS_TERMCAP_ue=$'\e[0m'       # end underline mode
+export LESS_TERMCAP_us=$'\e[1;32m'    # underline mode
+
+# FZF configurations (if installed)
+if command -v fzf &> /dev/null; then
+    export FZF_DEFAULT_OPTS='--height 40% --layout=reverse --border'
+    export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+    export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+    export FZF_ALT_C_COMMAND="fd --type d --hidden --follow --exclude .git"
+fi
+
+# Enhanced aliases for better productivity
+# Docker aliases (if docker is available)
+if command -v docker &> /dev/null; then
+    alias d='docker'
+    alias dc='docker-compose'
+    alias dps='docker ps'
+    alias di='docker images'
+    alias dcl='docker-compose logs'
+    alias dcu='docker-compose up -d'
+    alias dcd='docker-compose down'
+fi
+
+# Python aliases (if python is available)
+if command -v python &> /dev/null; then
+    alias py='python'
+    alias pip='python -m pip'
+    alias venv='python -m venv'
+fi
+
+# Node.js aliases (if node is available)
+if command -v node &> /dev/null; then
+    alias n='npm'
+    alias ni='npm install'
+    alias ns='npm start'
+    alias nt='npm test'
+    alias nr='npm run'
+fi
+
 eval "$(starship init bash)"
 
 . "$HOME/.local/bin/env"
