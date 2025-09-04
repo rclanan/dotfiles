@@ -102,7 +102,25 @@ case "$1" in
     "status")
         echo -e "${GREEN}Current stow status:${NC}"
         cd "$STOW_DIR"
-        stow -n -v bash git tmux vim zsh 2>/dev/null || echo "Some packages may not be stowed"
+
+        packages=("bash" "git" "tmux" "vim" "zsh")
+
+        for package in "${packages[@]}"; do
+            if [ -d "$package" ]; then
+                # Check if package is stowed by looking for symlinks
+                if ls -la ~/ | grep -q "dotfiles/$package"; then
+                    echo -e "  ${GREEN}✓${NC} $package - stowed"
+                else
+                    echo -e "  ${YELLOW}✗${NC} $package - not stowed"
+                fi
+            else
+                echo -e "  ${RED}⚠${NC} $package - package directory missing"
+            fi
+        done
+
+        echo ""
+        echo -e "${YELLOW}To see detailed symlink status:${NC}"
+        echo "ls -la ~/ | grep dotfiles"
         ;;
     *)
         echo "Usage: $0 {backup|stow|unstow|restore|status}"
