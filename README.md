@@ -62,6 +62,7 @@ curl -fsSL https://raw.githubusercontent.com/rclanan/dotfiles/main/bootstrap.sh 
 ./setup/install.sh --essential-opt # Recommended essentials (14 packages)
 ./setup/install.sh --official-opt  # Core development (62 packages)
 ./setup/install.sh --postgresql    # PostgreSQL database setup
+./setup/install.sh --power-mgmt    # KDE power management (dev-friendly)
 ```
 
 #### 🔧 Maintenance & Manual Setup
@@ -588,6 +589,50 @@ psql -U $USER -l
 
 # Connect to specific database
 psql -U $USER -d myproject
+```
+
+## ⚡ **KDE Power Management (Development Optimized)**
+
+Perfect for developers who need uninterrupted workflow while maintaining power efficiency:
+
+```bash
+./setup/install.sh --power-mgmt
+```
+
+### What gets configured:
+- **System sleep**: DISABLED (keeps long-running processes active)
+- **Screen sleep**: ENABLED (10min on AC, 5min on battery)
+- **SSH sessions**: Remain active during development
+- **Background tasks**: Won't be interrupted by sleep
+- **Power profiles**: Optimized for both AC and battery use
+
+### Perfect for:
+- ✅ Long-running builds and compilations
+- ✅ SSH sessions to remote servers
+- ✅ Database operations and migrations
+- ✅ Docker containers and VMs
+- ✅ Development servers and APIs
+- ✅ Background sync processes
+
+### Configuration details:
+```bash
+# View current power settings
+cat ~/.config/powermanagementprofilesrc
+
+# Manual restart of power management
+killall powerdevil && kstart6 powerdevil
+
+# Check power management status
+systemctl status powerdevil
+```
+
+### Reverting to default:
+If you need to restore default power management:
+```bash
+# Reset power management profiles
+rm ~/.config/powermanagementprofilesrc
+# Restart Plasma to reload defaults
+killall plasmashell && kstart6 plasmashell
 ```
 
 ### Getting Help

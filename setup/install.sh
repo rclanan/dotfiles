@@ -226,6 +226,7 @@ usage() {
     echo "  --aur                Install only AUR packages"
     echo "  --aur-opt            Install AUR packages (optimized, no debug packages)"
     echo "  --postgresql         Install and setup PostgreSQL"
+    echo "  --power-mgmt         Configure KDE power management (no sleep, screen sleep)"
     echo "  --update             Update system packages only"
     echo "  --help               Show this help message"
     echo ""
@@ -280,6 +281,10 @@ main() {
         ;;
     --postgresql)
         install_mode="postgresql"
+        shift
+        ;;
+    --power-mgmt|--power-management)
+        install_mode="power-management"
         shift
         ;;
     --update)
@@ -395,6 +400,12 @@ main() {
             check_system
             update_system
             "$SETUP_DIR/setup-postgresql.sh"
+            ;;
+        "power-management")
+            log "Setting up KDE Power Management"
+            log "==============================="
+            check_system
+            "$SETUP_DIR/setup-power-management.sh"
             ;;
         "update")
             log "Updating System Packages"
