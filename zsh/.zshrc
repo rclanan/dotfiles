@@ -364,7 +364,7 @@ findproject() {
 cdp() {
     local results=$(findproject "$1")
     local count=$(echo "$results" | wc -l)
-    
+
     if [ -z "$results" ]; then
         echo "No projects found matching '$1'"
         return 1
@@ -377,6 +377,64 @@ cdp() {
         read num
         cd $(echo "$results" | sed -n "${num}p")
     fi
+}
+
+# Chrome DevTools Protocol helpers
+chrome-debug() {
+    echo "Starting Chrome with remote debugging..."
+    if [ -z "$DISPLAY" ]; then
+        echo "No display detected - using headless mode"
+        google-chrome-stable --headless \
+                            --remote-debugging-port=9222 \
+                            --user-data-dir=/tmp/chrome-debug \
+                            --no-first-run \
+                            --no-default-browser-check \
+                            --disable-background-timer-throttling \
+                            --disable-backgrounding-occluded-windows \
+                            --disable-renderer-backgrounding \
+                            --disable-gpu \
+                            --no-sandbox \
+                            --disable-dev-shm-usage &
+    else
+        google-chrome-stable --remote-debugging-port=9222 \
+                            --user-data-dir=/tmp/chrome-debug \
+                            --no-first-run \
+                            --no-default-browser-check \
+                            --disable-background-timer-throttling \
+                            --disable-backgrounding-occluded-windows \
+                            --disable-renderer-backgrounding &
+    fi
+    sleep 3
+    echo "Chrome DevTools available at: http://localhost:9222"
+}
+
+chrome-check() {
+    if curl -s http://localhost:9222/json/version > /dev/null; then
+        echo "✅ Chrome DevTools Protocol is active on port 9222"
+        curl -s http://localhost:9222/json/version | jq -r '"Browser: \(.Browser)"'
+    else
+        echo "❌ No Chrome instance found on port 9222"
+        echo "Try: chrome-debug"
+    fi
+}
+
+chrome-kill() {
+    echo "Killing all Chrome processes..."
+    pkill -f "chrome" || echo "No Chrome processes found"
+}
+
+chrome-gui() {
+    echo "Starting Chrome in GUI mode (requires display)..."
+    if [ -z "$DISPLAY" ]; then
+        echo "❌ No display available. Use chrome-debug for headless mode."
+        return 1
+    fi
+    google-chrome-stable --remote-debugging-port=9222 \
+                        --user-data-dir=/tmp/chrome-debug \
+                        --no-first-run \
+                        --no-default-browser-check &
+    sleep 2
+    echo "Chrome GUI available at: http://localhost:9222"
 }
 
 # Claude Code specific aliases and functions
