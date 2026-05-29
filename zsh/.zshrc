@@ -205,9 +205,14 @@ duf() {
 # Directory navigation
 export CDPATH=".:~:~/Documents:~/Downloads"
 
-# Better cd with history
+# Better cd with auto-listing — but only when interactive (stdout is a TTY).
+# Guarding on `[[ -t 1 ]]` keeps the `ls` for humans while preventing it from
+# polluting the output of scripts, pipelines, and automation/agents that run
+# `cd … && <command>` (where stdout is a pipe, not a terminal).
 cd() {
-    builtin cd "$@" && ls
+    builtin cd "$@" || return $?
+    [[ -t 1 ]] && ls
+    return 0
 }
 
 # Go back to previous directory
@@ -799,3 +804,36 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# opencode
+export PATH=/home/rclanan/.opencode/bin:$PATH
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Rust/Cargo configuration
+export RUSTFLAGS="-C link-arg=-fuse-ld=mold"
+export CARGO_TARGET_X86_64_UNKNOWN_LINUX_GNU_LINKER=clang
+
+# Node.js memory configuration (fix "FATAL ERROR: Reached maximum memory heap")
+# Set heap size to 8GB for large TypeScript/JavaScript projects
+export NODE_OPTIONS="--max-old-space-size=8192"
+
+# >>> pre-commit cache routing >>>
+# Route pre-commit cache into the current git repo when possible.
+_set_precommit_home_from_git_root() {
+  local root
+  root=$(git rev-parse --show-toplevel 2>/dev/null) || return 0
+  export PRE_COMMIT_HOME="$root/.cache/pre-commit"
+}
+autoload -Uz add-zsh-hook 2>/dev/null || true
+add-zsh-hook chpwd _set_precommit_home_from_git_root 2>/dev/null || true
+_set_precommit_home_from_git_root
+# <<< pre-commit cache routing <<<
+
+# Added by flyctl installer
+export FLYCTL_INSTALL="/home/rclanan/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+
+# uv: project lives on a different filesystem than ~/.cache/uv, so hardlinks
+# aren't possible. Tell uv to copy instead of warning on every install.
+export UV_LINK_MODE=copy
